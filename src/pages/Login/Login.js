@@ -7,6 +7,7 @@ import './Login.css';
 class Login extends Component {
   state = {
     rerister: false,
+    isLogged: false,
   };
 
   handleSubmit = e => {
