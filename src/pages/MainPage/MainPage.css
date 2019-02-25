@@ -10,6 +10,14 @@
   margin-right: 20px;
 }
 
+.main__content {
+  padding: 20px;
+}
+
+.main__tasks {
+  margin-bottom: 20px;
+}
+
 .header {
   display: flex;
   align-items: center
@@ -17,4 +25,33 @@
 
 .header__side {
   margin-left: auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards__elem {
+  width: 30%;
+  padding: 10px;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.cards__title {
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.cards__time {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
 }
