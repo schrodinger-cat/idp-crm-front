@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/Login/Login.js';
 import MainPage from './pages/MainPage/MainPage.js';
@@ -18,9 +18,12 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/" component={ this.state.isLogged ? MainPage : Login } />
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+          <Route path="/login" component={Login} />
+        </Switch>
       </Router>
-    )
+    );
   }
 }
 

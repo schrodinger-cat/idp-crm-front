@@ -2,7 +2,7 @@
   "name": "idp-crm-front",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://schrodinger-cat.github.io",
+  "homepage": "https://schrodinger-cat.github.io/idp-crm-front/",
   "dependencies": {
     "antd": "^3.13.5",
     "gh-pages": "^2.0.1",

@@ -71,7 +71,7 @@ class Login extends Component {
                   valuePropName: 'checked',
                   initialValue: true,
                 })(<Checkbox>Запомнить меня</Checkbox>)}
-                <a className="login-form-forgot" href="">
+                <a className="login-form-forgot" href="#">
                   Забыли пароль?
                 </a>
                 <Button type="primary" htmlType="submit" className="login-form-button">

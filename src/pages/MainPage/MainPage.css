@@ -1,0 +1,16 @@
+.main__footer {
+  text-align: center;
+}
+
+.main__logo {
+  margin-right: 100px;
+}
+
+.header {
+  display: flex;
+  align-items: center
+}
+
+.header__side {
+  margin-left: auto;
+}
