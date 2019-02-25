@@ -6,6 +6,10 @@
   margin-right: 100px;
 }
 
+.main__button {
+  margin-right: 20px;
+}
+
 .header {
   display: flex;
   align-items: center

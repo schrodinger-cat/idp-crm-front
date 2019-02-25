@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon, Avatar, Badge, Dropdown } from 'antd';
+import { Layout, Menu, Icon, Avatar, Badge, Dropdown, Button } from 'antd';
 import './MainPage.css';
 import { ReactComponent as Logo } from './assets/logo.svg';
 
@@ -50,6 +50,9 @@ class MainPage extends Component {
             </Menu>
 
             <div className="header__side">
+              <Button ghost className="main__button"><Icon type="flag" /> 4 часа 20 минут</Button>
+              <Button ghost className="main__button"><Icon type="coffee" /> 0 минут</Button>
+
               <Dropdown overlay={menu}>
                 <Badge count={1}>
                   <Avatar shape="square" icon="user" />
