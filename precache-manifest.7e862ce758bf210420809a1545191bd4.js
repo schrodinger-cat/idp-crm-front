@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/idp-crm-front/static/js/runtime~main.901075d0.js"
   },
   {
-    "revision": "b57479b27a4d129ea8e4",
-    "url": "/idp-crm-front/static/js/main.b57479b2.chunk.js"
+    "revision": "8070758d9fe8908d3432",
+    "url": "/idp-crm-front/static/js/main.8070758d.chunk.js"
   },
   {
-    "revision": "f39ba482b34a0acb2e20",
-    "url": "/idp-crm-front/static/js/2.f39ba482.chunk.js"
+    "revision": "541021647a91e0be6a21",
+    "url": "/idp-crm-front/static/js/2.54102164.chunk.js"
   },
   {
-    "revision": "b57479b27a4d129ea8e4",
+    "revision": "8070758d9fe8908d3432",
     "url": "/idp-crm-front/static/css/main.06c03b88.chunk.css"
   },
   {
-    "revision": "f39ba482b34a0acb2e20",
+    "revision": "541021647a91e0be6a21",
     "url": "/idp-crm-front/static/css/2.8503c0a4.chunk.css"
   },
   {
-    "revision": "092b1ce336ad54af91646332d3b66364",
+    "revision": "baba64f8546adec6b2f7cf6d63f7bf83",
     "url": "/idp-crm-front/index.html"
   }
 ];
