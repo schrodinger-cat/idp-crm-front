@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/idp-crm-front/precache-manifest.0a683ad1f05f146c44bb3164fdaa5a59.js"
+  "/idp-crm-front/precache-manifest.86b0bebaf1d9d48422d833da9b3457fb.js"
 );
 
 workbox.clientsClaim();
