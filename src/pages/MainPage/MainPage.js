@@ -3,6 +3,8 @@ import { Layout, Menu, Icon, Avatar, Badge, Dropdown, Button, Tabs, Rate, Tag } 
 import './MainPage.css';
 import { ReactComponent as Logo } from './assets/logo.svg';
 
+import projects from './data.json';
+
 const { Header, Footer, Content } = Layout;
 const TabPane = Tabs.TabPane;
 
@@ -23,8 +25,65 @@ const menu = (
   </Menu>
 );
 
+function Projects(props) {
+  return props.list.map(project => {
+    return (
+      <div key={project.id}>
+        <h2>{project.project}</h2>
+        <Tabs defaultActiveKey="2" className="main__tasks">
+          <TabPane tab="К выполнению" key="1">
+            <div className="cards">
+              <Tasks list={project.tasks.filter(e => e.status == 1)} />
+            </div>
+          </TabPane>
+          <TabPane tab="В работе" key="2">
+            <div className="cards">
+              <Tasks list={project.tasks.filter(e => e.status == 2)} />
+            </div>
+          </TabPane>
+          <TabPane tab="Тестирование" key="3">
+            <div className="cards">
+              <Tasks list={project.tasks.filter(e => e.status == 3)} />
+            </div>
+          </TabPane>
+          <TabPane tab="Завершенные" key="4">
+            <div className="cards">
+              <Tasks list={project.tasks.filter(e => e.status == 4)} />
+            </div>
+          </TabPane>
+        </Tabs>
+      </div>
+    );
+  });
+}
+
+function Tasks(props) {
+  return props.list.map(task => {
+    return (
+      <div className="cards__elem" key={task.id}>
+        <div className="cards__title" title={task.name}>{task.name}</div>
+        <Rate value={task.stars} />
+        <div className="cards__time">
+          <Tag color="green">
+            <Icon type="clock-circle" /> {task.estimate}
+          </Tag>
+          <Tag color="orange">
+            <Icon type="clock-circle" /> {task.spend}
+          </Tag>
+        </div>
+      </div>
+    )
+  });
+}
+
 class MainPage extends Component {
+  state = {
+    list: projects,
+  };
+
   render() {
+    const { list } = this.state;
+
     return (
       <div>
         <Layout>
@@ -36,7 +95,6 @@ class MainPage extends Component {
               mode="horizontal"
               defaultSelectedKeys={['1']}
               style={{ lineHeight: '64px', minWidth: '500px' }}
-              inlineCollapsed={false}
             >
               <Menu.Item key="1">
                 <Icon type="folder" /> Проекты
@@ -66,245 +124,7 @@ class MainPage extends Component {
             </div>
           </Header>
           <Content className="main__content">
-            <h2>Invest progress</h2>
-
-            <Tabs defaultActiveKey="2" className="main__tasks">
-              <TabPane tab="К выполнению" key="1">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="В работе" key="2">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">В историю переводов добавить на партнерки и рефералку описание как в таблице транзакции</div>
-                    <Rate value={4} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 1 час</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 0 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Кастомизация страницы подарки в админке </div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={5} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Тестирование" key="3">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Завершенные" key="4">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-            </Tabs>
-
-            <h2>Sailspeak</h2>
-
-            <Tabs defaultActiveKey="2" className="main__tasks">
-              <TabPane tab="К выполнению" key="1">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="В работе" key="2">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">В историю переводов добавить на партнерки и рефералку описание как в таблице транзакции</div>
-                    <Rate value={4} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 1 час</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 0 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Кастомизация страницы подарки в админке </div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={5} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Тестирование" key="3">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Завершенные" key="4">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-            </Tabs>
-
-            <h2>Разное</h2>
-
-            <Tabs defaultActiveKey="2" className="main__tasks">
-              <TabPane tab="К выполнению" key="1">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="В работе" key="2">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">В историю переводов добавить на партнерки и рефералку описание как в таблице транзакции</div>
-                    <Rate value={4} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 1 час</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 0 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Кастомизация страницы подарки в админке </div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={5} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 4 часа</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 1 час 20 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Тестирование" key="3">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-              <TabPane tab="Завершенные" key="4">
-                <div className="cards">
-                  <div className="cards__elem">
-                    <div className="cards__title">Реализация страницы дерево структуры</div>
-                    <Rate value={3} />
-                    <div className="cards__time">
-                      <Tag color="green"><Icon type="clock-circle" /> 40 часов</Tag>
-                      <Tag color="orange"><Icon type="clock-circle" /> 10 часов 13 минут</Tag>
-                    </div>
-                  </div>
-                </div>
-              </TabPane>
-            </Tabs>
+            <Projects list={list} />
           </Content>
           <Footer className="main__footer">2019, IDP</Footer>
         </Layout>
