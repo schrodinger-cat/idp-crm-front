@@ -1,16 +1,16 @@
 {
-  "main.css": "/idp-crm-front/static/css/main.06c03b88.chunk.css",
-  "main.js": "/idp-crm-front/static/js/main.8070758d.chunk.js",
-  "main.js.map": "/idp-crm-front/static/js/main.8070758d.chunk.js.map",
+  "main.css": "/idp-crm-front/static/css/main.cb6d3f11.chunk.css",
+  "main.js": "/idp-crm-front/static/js/main.fcd83a96.chunk.js",
+  "main.js.map": "/idp-crm-front/static/js/main.fcd83a96.chunk.js.map",
   "runtime~main.js": "/idp-crm-front/static/js/runtime~main.901075d0.js",
   "runtime~main.js.map": "/idp-crm-front/static/js/runtime~main.901075d0.js.map",
   "static/css/2.8503c0a4.chunk.css": "/idp-crm-front/static/css/2.8503c0a4.chunk.css",
-  "static/js/2.54102164.chunk.js": "/idp-crm-front/static/js/2.54102164.chunk.js",
-  "static/js/2.54102164.chunk.js.map": "/idp-crm-front/static/js/2.54102164.chunk.js.map",
+  "static/js/2.9b8d38e8.chunk.js": "/idp-crm-front/static/js/2.9b8d38e8.chunk.js",
+  "static/js/2.9b8d38e8.chunk.js.map": "/idp-crm-front/static/js/2.9b8d38e8.chunk.js.map",
   "index.html": "/idp-crm-front/index.html",
-  "precache-manifest.7e862ce758bf210420809a1545191bd4.js": "/idp-crm-front/precache-manifest.7e862ce758bf210420809a1545191bd4.js",
+  "precache-manifest.aaded148a765f2c55d23205d3a78865c.js": "/idp-crm-front/precache-manifest.aaded148a765f2c55d23205d3a78865c.js",
   "service-worker.js": "/idp-crm-front/service-worker.js",
   "static/css/2.8503c0a4.chunk.css.map": "/idp-crm-front/static/css/2.8503c0a4.chunk.css.map",
-  "static/css/main.06c03b88.chunk.css.map": "/idp-crm-front/static/css/main.06c03b88.chunk.css.map",
+  "static/css/main.cb6d3f11.chunk.css.map": "/idp-crm-front/static/css/main.cb6d3f11.chunk.css.map",
   "static/media/logo.d430f1de.svg": "/idp-crm-front/static/media/logo.d430f1de.svg"
 }

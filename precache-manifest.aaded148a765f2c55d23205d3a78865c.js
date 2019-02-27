@@ -8,23 +8,23 @@ self.__precacheManifest = [
     "url": "/idp-crm-front/static/js/runtime~main.901075d0.js"
   },
   {
-    "revision": "8070758d9fe8908d3432",
-    "url": "/idp-crm-front/static/js/main.8070758d.chunk.js"
+    "revision": "fcd83a963557c2cef9be",
+    "url": "/idp-crm-front/static/js/main.fcd83a96.chunk.js"
   },
   {
-    "revision": "541021647a91e0be6a21",
-    "url": "/idp-crm-front/static/js/2.54102164.chunk.js"
+    "revision": "9b8d38e8ffdae207a261",
+    "url": "/idp-crm-front/static/js/2.9b8d38e8.chunk.js"
   },
   {
-    "revision": "8070758d9fe8908d3432",
-    "url": "/idp-crm-front/static/css/main.06c03b88.chunk.css"
+    "revision": "fcd83a963557c2cef9be",
+    "url": "/idp-crm-front/static/css/main.cb6d3f11.chunk.css"
   },
   {
-    "revision": "541021647a91e0be6a21",
+    "revision": "9b8d38e8ffdae207a261",
     "url": "/idp-crm-front/static/css/2.8503c0a4.chunk.css"
   },
   {
-    "revision": "baba64f8546adec6b2f7cf6d63f7bf83",
+    "revision": "a5eaaf5e0578bfb831300a67b0c06bfe",
     "url": "/idp-crm-front/index.html"
   }
 ];
