@@ -12,8 +12,8 @@ class Tasks extends Component {
     return (
       <div className="cards">
         {list.map(task => (
-          <div className="cards__elem" key={task.id} onClick={this.props.onClick} data-id={task.id}>
-            <div className="cards__title" title={task.name}>
+          <div className="cards__elem" key={task.id}>
+            <div className="cards__title" title={task.name} onClick={this.props.onOpenTask} data-id={task.id}>
               {task.name}
             </div>
             <Rate value={task.stars} />

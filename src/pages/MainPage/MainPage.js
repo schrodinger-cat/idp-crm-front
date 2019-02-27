@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Layout, Icon, Tabs, Rate, Tag } from 'antd';
+import { Layout, Drawer } from 'antd';
 import './MainPage.css';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import PageFooter from '../../components/PageFooter/PageFooter.js';
+import PageFooter from '../../components/PageFooter/PageFooter';
+import TaskDetail from './components/TaskDetail/TaskDetail';
 
 import Projects from './components/Projects/Projects';
 
@@ -10,60 +11,31 @@ import projects from './data.json';
 
 const { Content } = Layout;
 
-// function Projects(props) {
-//   return props.list.map(project => {
-//     return (
-//       <div key={project.id}>
-//         <h2>{project.project}</h2>
-//         <Tabs defaultActiveKey="2" className="main__tasks">
-//           <TabPane tab="К выполнению" key="1">
-//             <div className="cards">
-//               <Tasks list={project.tasks.filter(e => e.status == 1)} />
-//             </div>
-//           </TabPane>
-//           <TabPane tab="В работе" key="2">
-//             <div className="cards">
-//               <Tasks list={project.tasks.filter(e => e.status == 2)} />
-//             </div>
-//           </TabPane>
-//           <TabPane tab="Тестирование" key="3">
-//             <div className="cards">
-//               <Tasks list={project.tasks.filter(e => e.status == 3)} />
-//             </div>
-//           </TabPane>
-//           <TabPane tab="Завершенные" key="4">
-//             <div className="cards">
-//               <Tasks list={project.tasks.filter(e => e.status == 4)} />
-//             </div>
-//           </TabPane>
-//         </Tabs>
-//       </div>
-//     );
-//   });
-// }
-
-// function Tasks(props) {
-//   return props.list.map(task => {
-//     return (
-//       <div className="cards__elem" key={task.id}>
-//         <div className="cards__title" title={task.name}>{task.name}</div>
-//         <Rate value={task.stars} />
-//         <div className="cards__time">
-//           <Tag color="green">
-//             <Icon type="clock-circle" /> {task.estimate}
-//           </Tag>
-//           <Tag color="orange">
-//             <Icon type="clock-circle" /> {task.spend}
-//           </Tag>
-//         </div>
-//       </div>
-//     )
-//   });
-// }
-
 class MainPage extends Component {
   state = {
     list: projects,
+    projectDetail: false,
+    currentTask: null,
+  };
+
+  openTask = e => {
+    const { list } = this.state;
+    list.forEach((elem, index) => {
+      console.log(elem);
+      let childIndex = elem.tasks.map(task => task.id).indexOf(e.target.dataset.id);
+
+      if (childIndex !== -1) {
+        this.setState({ currentTask: list[index].tasks[childIndex] });
+      }
+    });
+
+    if (this.state.currentTask) {
+      this.setState({ projectDetail: true });
+    }
+  };
+
+  closeProjectDetail = () => {
+    this.setState({ projectDetail: false });
   };
 
   render() {
@@ -72,13 +44,24 @@ class MainPage extends Component {
     return (
       <div>
         <Layout>
-          <PageHeader/>
+          <PageHeader />
+          <Drawer
+            title={this.state.currentTask ? this.state.currentTask.name : ''}
+            placement="right"
+            width={600}
+            closable={false}
+            onClose={this.closeProjectDetail}
+            visible={this.state.projectDetail}
+            destroyOnClose={true}
+          >
+            <TaskDetail task={this.state.currentTask} />
+          </Drawer>
 
           <Content className="main__content">
-            <Projects list={list} />
+            <Projects list={list} onOpenTask={this.openTask} />
           </Content>
 
-          <PageFooter/>
+          <PageFooter />
         </Layout>
       </div>
     );
